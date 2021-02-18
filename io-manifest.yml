@@ -20,3 +20,8 @@ environment:
   scmRepositoryName: github-io-sample
   scmBranchName: master
   githubApiUrl: https://api.github.com/repos/
+  jiraProjectName: <<JIRA_PROJECT_NAME>>
+  jiraIssuesQuery: <<JIRA_ISSUES_QUERY>>
+  jiraApiUrl: <<JIRA_API_URL>>
+  jiraUserName: <<JIRA_USERNAME>>
+  jiraAuthToken: <<JIRA_AUTH_TOKEN>>
