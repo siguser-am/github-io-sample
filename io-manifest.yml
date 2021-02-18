@@ -23,5 +23,5 @@ environment:
   jiraProjectName: github-io-sample
   jiraIssuesQuery: <<JIRA_ISSUES_QUERY>>
   jiraApiUrl: <<JIRA_API_URL>>
-  jiraUserName: <<JIRA_USERNAME>>
+  jiraUserName: siguser-am
   jiraAuthToken: <<JIRA_AUTH_TOKEN>>
