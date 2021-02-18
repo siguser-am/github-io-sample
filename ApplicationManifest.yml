@@ -1,0 +1,22 @@
+application:
+  appId: github-io-sample
+  assetId: github-io-sample
+  sdlcType: EDM
+  appType: Webapp
+  webservice: true
+  restApi: true
+  microservice: false
+  projectLanguage: Java
+  platformVersion: Java 8
+  buildSystem: Maven
+  riskMatrixRevision: Rev1.0
+  sourceFilePattern: .*\+\+\+.*(\.java|\.jsp)+.*
+  sensitivePackagePattern: .*(\+\+\+.*(com\/synopsys\/app)).*
+  fileChangeThreshold: 20
+  release: major
+environment:
+  scm: github
+  scmOwner: siguser-am
+  scmRepositoryName: github-io-sample
+  scmBranchName: master
+  githubApiUrl: https://api.github.com/repos/
