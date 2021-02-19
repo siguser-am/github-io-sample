@@ -1,6 +1,6 @@
 application:
-  appId: siguser-am/github-io-sample
-  assetId: siguser-am/github-io-sample
+  appId: github-io-sample-am
+  assetId: github-io-sample-am
   sdlcType: EDM
   appType: Webapp
   webservice: true
