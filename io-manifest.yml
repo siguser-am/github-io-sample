@@ -1,6 +1,6 @@
 application:
-  appId: github-io-sample
-  assetId: github-io-sample
+  appId: siguser-am/github-io-sample
+  assetId: siguser-am/github-io-sample
   sdlcType: EDM
   appType: Webapp
   webservice: true
@@ -20,8 +20,3 @@ environment:
   scmRepositoryName: github-io-sample
   scmBranchName: master
   githubApiUrl: https://api.github.com/repos/
-  jiraProjectName: name
-  jiraIssuesQuery: query
-  jiraApiUrl: NOTNULl
-  jiraUserName: NOTNULL
-  jiraAuthToken: NOTNULL 
