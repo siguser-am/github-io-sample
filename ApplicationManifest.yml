@@ -25,3 +25,4 @@ environment:
   jiraApiUrl: <<JIRA_API_URL>>
   jiraUserName: <<JIRA_USERNAME>>
   jiraAuthToken: <<JIRA_AUTH_TOKEN>>
+
