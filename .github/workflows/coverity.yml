@@ -31,13 +31,15 @@ jobs:
       - name: Coverity Tools Download
         run: |
             set -x
-            echo 'COVERITY_TOOL_HOME<</tmp/$CSA' >> $GITHUB_ENV
+            COVERITY_TOOL_HOME=/tmp/$CSA
             echo $COVERITY_TOOL_HOME
             
             curl -kfLsS --user ${{secrets.COV_USER}}:${{secrets.COVERITY_PASSPHRASE}} ${{secrets.COV_URL}}/downloadFile.htm?fn=$CSA.tar.gz | tar -xzf - -C /tmp/
             curl -kfLsS --user ${{secrets.COV_USER}}:${{secrets.COVERITY_PASSPHRASE}} -o license.dat ${{secrets.COV_URL}}/downloadFile.htm?fn=license.dat
             curl -kfLsS --user ${{secrets.COV_USER}}:${{secrets.COVERITY_PASSPHRASE}} -o ca.cer ${{secrets.COV_URL}}/downloadFile.htm?fn=ca.cer
             mv license.dat $COVERITY_TOOL_HOME/bin
+            
+            echo 'COVERITY_TOOL_HOME<<$COVERITY_TOOL_HOME' >> $GITHUB_ENV
       
       - name: Coverity Analysis
         run: |
