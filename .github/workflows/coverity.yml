@@ -32,6 +32,7 @@ jobs:
       - name: Coverity Tools Download
         run: |
             set -x
+            echo 'COVERITY_TOOL_HOME<</tmp/$CSA' >> $GITHUB_ENV
             echo $COVERITY_TOOL_HOME
             
             curl -kfLsS --user ${{secrets.COV_USER}}:${{secrets.COVERITY_PASSPHRASE}} ${{secrets.COV_URL}}/downloadFile.htm?fn=$CSA.tar.gz | tar -xzf - -C /tmp/
@@ -41,6 +42,7 @@ jobs:
       
       - name: Coverity Analysis
         run: |
+            echo $COVERITY_TOOL_HOME
             $COVERITY_TOOL_HOME/bin/cov-configure --java
             $COVERITY_TOOL_HOME/bin/cov-build --dir idir mvn clean compile -Drat.skip=true
             $COVERITY_TOOL_HOME/bin/cov-analyze --dir idir --all --webapp-security --disable-fb --ticker-mode none
