@@ -32,7 +32,6 @@ jobs:
         run: |
             set -x
             COVERITY_TOOL_HOME=/tmp/$CSA
-            echo $COVERITY_TOOL_HOME
             
             curl -kfLsS --user ${{secrets.COV_USER}}:${{secrets.COVERITY_PASSPHRASE}} ${{secrets.COV_URL}}/downloadFile.htm?fn=$CSA.tar.gz | tar -xzf - -C /tmp/
             curl -kfLsS --user ${{secrets.COV_USER}}:${{secrets.COVERITY_PASSPHRASE}} -o license.dat ${{secrets.COV_URL}}/downloadFile.htm?fn=license.dat
@@ -43,7 +42,6 @@ jobs:
       
       - name: Coverity Analysis
         run: |
-            echo $COVERITY_TOOL_HOME
             $COVERITY_TOOL_HOME/bin/cov-configure --java
             $COVERITY_TOOL_HOME/bin/cov-build --dir idir mvn clean compile -Drat.skip=true
             $COVERITY_TOOL_HOME/bin/cov-analyze --dir idir --all --webapp-security --disable-fb --ticker-mode none
