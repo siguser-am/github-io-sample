@@ -22,7 +22,7 @@ jobs:
       # Environment variables
     env:
       CSA: cov-analysis-linux64-2021.03
-      COVERITY_TOOL_HOME: /tmp/${{ env.CSA }}
+      COVERITY_TOOL_HOME: /tmp/${{env.CSA}}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
