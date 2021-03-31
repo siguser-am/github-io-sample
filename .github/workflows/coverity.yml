@@ -22,6 +22,7 @@ jobs:
       # Environment variables
     env:
       CSA: cov-analysis-linux64-2021.03
+      COVERITY_TOOLS_HOME: /tmp/$CSA
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -35,11 +36,10 @@ jobs:
             curl -kfLsS --user ${{secrets.COV_USER}}:${{secrets.COVERITY_PASSPHRASE}} ${{secrets.COV_URL}}/downloadFile.htm?fn=$CSA.tar.gz | tar -xzf - -C /tmp/
             curl -kfLsS --user ${{secrets.COV_USER}}:${{secrets.COVERITY_PASSPHRASE}} -o license.dat ${{secrets.COV_URL}}/downloadFile.htm?fn=license.dat
             curl -kfLsS --user ${{secrets.COV_USER}}:${{secrets.COVERITY_PASSPHRASE}} -o ca.cer ${{secrets.COV_URL}}/downloadFile.htm?fn=ca.cer
-            mv license.dat $CSA/bin
+            mv license.dat $COVERITY_TOOLS_HOME/bin
       
       - name: Coverity Analysis
         run: |
-            COVERITY_TOOL_HOME="/tmp/$CSA"
             $COVERITY_TOOL_HOME/bin/cov-configure --java
             $COVERITY_TOOL_HOME/bin/cov-build --dir idir mvn clean compile -Drat.skip=true
             $COVERITY_TOOL_HOME/bin/cov-analyze --dir idir --all --webapp-security --disable-fb --ticker-mode none
